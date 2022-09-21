@@ -7,7 +7,7 @@ import argparse
 
 # create the parser
 arg = argparse.ArgumentParser()
-# arg.add_argument("Simple python wrapper for count SNP number of IMPUTE2 output for Imputation with one phased reference panel Basic Scenario")
+arg.add_argument("Simple python wrapper for count SNP number of IMPUTE2 output for Imputation with one phased reference panel Basic Scenario")
 
 # add an argument
 option = arg.add_mutually_exclusive_group()
@@ -16,7 +16,6 @@ option.add_argument("-o", "--output", help="Output file from analysis", type=str
 
 # parsing the argument
 args = vars(arg.parse_args())
-# print(args['output'])
 
 try:    
     print('Process Loading')
@@ -38,5 +37,6 @@ try:
 except FileNotFoundError:
     print('File Not Found')
 
+df = pd.read_csv("../impute2/Example/example.chr22.study.gens", sep=' ', header=None))
 
 print('The Process have been done')
