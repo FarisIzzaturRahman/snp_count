@@ -37,6 +37,6 @@ try:
 except FileNotFoundError:
     print('File Not Found')
 
-df = pd.read_csv("../impute2/Example/example.chr22.study.gens", sep=' ', header=None))
+df = pd.read_csv("../impute2/Example/example.chr22.study.gens", sep=' ', header=None)
 
 print('The Process have been done')
