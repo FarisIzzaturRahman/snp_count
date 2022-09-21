@@ -18,18 +18,25 @@ option.add_argument("-o", "--output", help="Output file from analysis", type=str
 args = vars(arg.parse_args())
 # print(args['output'])
 
-os.system( 
-    f"""
-impute2 \
- -m ./Example/example.chr22.map \
- -h ./Example/example.chr22.1kG.haps \
- -l ./Example/example.chr22.1kG.legend \
- -g ./Example/example.chr22.study.gens \
- -strand_g ./Example/example.chr22.study.strand \
- -int 20e6 20.5e6 \
- -Ne 20000 \
- -o {args['output']}\
-    >out.txt"""
- )
+try:    
+    print('Process Loading')
+    os.system( 
+        f"""
+        impute2 \
+        -m ../impute2/Example/example.chr22.map \
+        -h ../impute2/Example/example.chr22.1kG.haps \
+        -l ../impute2/Example/example.chr22.1kG.legend \
+        -g ../impute2/Example/example.chr22.study.gens \
+        -strand_g ../impute2/Example/example.chr22.study.strand \
+        -int 20e6 20.5e6 \
+        -Ne 20000 \
+        -o {args['output']}\
+            > out.log
+        """
+    )
+    
+except FileNotFoundError:
+    print('File Not Found')
+
 
 print('The Process have been done')
