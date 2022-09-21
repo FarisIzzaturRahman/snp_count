@@ -7,7 +7,6 @@ import argparse
 
 # create the parser
 arg = argparse.ArgumentParser()
-arg.add_argument("Simple python wrapper for count SNP number of IMPUTE2 output for Imputation with one phased reference panel Basic Scenario")
 
 # add an argument
 option = arg.add_mutually_exclusive_group()
@@ -37,6 +36,16 @@ try:
 except FileNotFoundError:
     print('File Not Found')
 
-df = pd.read_csv("../impute2/Example/example.chr22.study.gens", sep=' ', header=None)
+df = pd.read_csv('../impute2/Example/example.chr22.study.gens', sep=' ', header=None).drop([0,1,2,3,4],axis=1)
+
+df_out =  pd.read_csv('../impute2/Example/example.chr22.one.phased.impute2', sep=' ', header =None)
+
+df_ref_hap = pd.read_csv('../impute2/Example/example.chr22.1kG.haps', sep = ' ', header=None)
+
+print("Haplotype from the reference panel = " + str(int(len(df_ref_hap.columns))))
+print("Individuals in the Study Dataset = " + str(int(len(df.columns)/3)))
+print("SNPs in the Study Dataset = " + str(len(df)))
+print("SNPs in the Output of analysis = " + str(len(df_out)))
+
 
 print('The Process have been done')
