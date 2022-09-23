@@ -6,9 +6,9 @@
 Copyright 2008 Bryan Howie, Peter Donnelly, and Jonathan Marchini
 Please see the LICENCE file included with this program for conditions of use.
 
-The seed for the random number generator is 1455948812.
+The seed for the random number generator is 1434396700.
 
-Command-line input: impute2 -m ./Example/example.chr22.map -h ./Example/example.chr22.1kG.haps -l ./Example/example.chr22.1kG.legend -g ./Example/example.chr22.study.gens -strand_g ./Example/example.chr22.study.strand -int 20e6 20.5e6 -Ne 20000 -o ./example.chr22.one.phased.impute2
+Command-line input: ./impute2 -m ./Example/example.chr22.map -h ./Example/example.chr22.1kG.haps -l ./Example/example.chr22.1kG.legend -g ./Example/example.chr22.study.gens -strand_g ./Example/example.chr22.study.strand -int 20e6 20.5e6 -Ne 20000 -o ./example.chr22.one.phased.impute2
 
 ---------------------------------
  Nomenclature and data structure 
@@ -163,13 +163,13 @@ In the current analysis, IMPUTE2 masked, imputed, and evaluated 5470 genotypes t
 When the masked study genotypes were imputed with reference data from Panel 0, the concordance between original and imputed genotypes was as follows:
 
   Interval  #Genotypes %Concordance         Interval  %Called %Concordance
-  [0.0-0.1]          0          0.0         [ >= 0.0]   100.0         94.8
-  [0.1-0.2]          0          0.0         [ >= 0.1]   100.0         94.8
-  [0.2-0.3]          0          0.0         [ >= 0.2]   100.0         94.8
-  [0.3-0.4]          0          0.0         [ >= 0.3]   100.0         94.8
-  [0.4-0.5]         27         44.4         [ >= 0.4]   100.0         94.8
-  [0.5-0.6]        150         65.3         [ >= 0.5]    99.5         95.0
-  [0.6-0.7]        122         54.9         [ >= 0.6]    96.8         95.9
-  [0.7-0.8]        183         81.4         [ >= 0.7]    94.5         96.8
-  [0.8-0.9]        246         90.7         [ >= 0.8]    91.2         97.4
-  [0.9-1.0]       4742         97.8         [ >= 0.9]    86.7         97.8
+  [0.0-0.1]          0          0.0         [ >= 0.0]   100.0         95.0
+  [0.1-0.2]          0          0.0         [ >= 0.1]   100.0         95.0
+  [0.2-0.3]          0          0.0         [ >= 0.2]   100.0         95.0
+  [0.3-0.4]          0          0.0         [ >= 0.3]   100.0         95.0
+  [0.4-0.5]         28         42.9         [ >= 0.4]   100.0         95.0
+  [0.5-0.6]        146         71.2         [ >= 0.5]    99.5         95.3
+  [0.6-0.7]        124         57.3         [ >= 0.6]    96.8         95.9
+  [0.7-0.8]        173         80.9         [ >= 0.7]    94.6         96.8
+  [0.8-0.9]        237         87.3         [ >= 0.8]    91.4         97.4
+  [0.9-1.0]       4762         97.9         [ >= 0.9]    87.1         97.9
