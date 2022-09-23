@@ -1,14 +1,14 @@
 
 ======================
- IMPUTE version 2.3.2 
+ IMPUTE version 2.2.2 
 ======================
 
 Copyright 2008 Bryan Howie, Peter Donnelly, and Jonathan Marchini
 Please see the LICENCE file included with this program for conditions of use.
 
-The seed for the random number generator is 1455948812.
+The seed for the random number generator is 1267978888.
 
-Command-line input: impute2 -m ./Example/example.chr22.map -h ./Example/example.chr22.1kG.haps -l ./Example/example.chr22.1kG.legend -g ./Example/example.chr22.study.gens -strand_g ./Example/example.chr22.study.strand -int 20e6 20.5e6 -Ne 20000 -o ./example.chr22.one.phased.impute2
+Command-line input: impute2 -m ./Example/example.chr22.map -h ./Example/example.chr22.1kG.haps -l ./Example/example.chr22.1kG.legend -g ./Example/example.chr22.study.gens -strand_g ./Example/example.chr22.study.strand -int 20e6 20.5e6 -Ne 20000 -o ./Example/out_1/example.chr22.one.phased.impute2
 
 ---------------------------------
  Nomenclature and data structure 
@@ -33,11 +33,11 @@ For optimal results, each successive panel (0,1,2) should contain a subset of th
  Output files 
 --------------
 
-                main output: ./example.chr22.one.phased.impute2
-                SNP QC info: ./example.chr22.one.phased.impute2_info
-             sample QC info: ./example.chr22.one.phased.impute2_info_by_sample
-                run summary: ./example.chr22.one.phased.impute2_summary
-                warning log: ./example.chr22.one.phased.impute2_warnings
+                main output: ./Example/out_1/example.chr22.one.phased.impute2
+                SNP QC info: ./Example/out_1/example.chr22.one.phased.impute2_info
+             sample QC info: ./Example/out_1/example.chr22.one.phased.impute2_info_by_sample
+                run summary: ./Example/out_1/example.chr22.one.phased.impute2_summary
+                warning log: ./Example/out_1/example.chr22.one.phased.impute2_warnings
 
 -----------------
  Data processing 
@@ -114,6 +114,7 @@ For optimal results, each successive panel (0,1,2) should contain a subset of th
  --0 type 1 SNPs
  --22 type 2 SNPs
  --5 type 3 SNPs
+ --572 total SNPs
 
 -In total, 578 SNPs will be used in the analysis, including 27 Panel 2 SNPs
 
@@ -142,96 +143,29 @@ For optimal results, each successive panel (0,1,2) should contain a subset of th
  Run log 
 ---------
 
-MCMC iteration [1/30]
-
-MCMC iteration [2/30]
-
-MCMC iteration [3/30]
-
 RESETTING PARAMETERS FOR "SURROGATE FAMILY" MODELING
 -setting mutation matrices
 -setting switch rates
-
-MCMC iteration [4/30]
-
-MCMC iteration [5/30]
-
-MCMC iteration [6/30]
-
-MCMC iteration [7/30]
-
-MCMC iteration [8/30]
-
-MCMC iteration [9/30]
-
-MCMC iteration [10/30]
-
-MCMC iteration [11/30]
-
-MCMC iteration [12/30]
-
-MCMC iteration [13/30]
-
-MCMC iteration [14/30]
-
-MCMC iteration [15/30]
-
-MCMC iteration [16/30]
-
-MCMC iteration [17/30]
-
-MCMC iteration [18/30]
-
-MCMC iteration [19/30]
-
-MCMC iteration [20/30]
-
-MCMC iteration [21/30]
-
-MCMC iteration [22/30]
-
-MCMC iteration [23/30]
-
-MCMC iteration [24/30]
-
-MCMC iteration [25/30]
-
-MCMC iteration [26/30]
-
-MCMC iteration [27/30]
-
-MCMC iteration [28/30]
-
-MCMC iteration [29/30]
-
-MCMC iteration [30/30]
-
 
 diploid sampling success rate: 0.987
 
 haploid sampling success rate: (no haploid sampling performed)
 
-
 --------------------------------
  Imputation accuracy assessment 
 --------------------------------
 
-The table below is based on an internal cross-validation that is performed during each IMPUTE2 run. For this analysis, the program masks the genotypes of one variant at a time in the study data (Panel 2) and imputes the masked genotypes by using the remaining study and reference data. The imputed genotypes are then compared with the original genotypes to produce the concordance statistics shown in the table. You can learn more about this procedure and the contents of the table at http://mathgen.stats.ox.ac.uk/impute/concordance_table_description.html.
+This breakdown is based on an internal leave-one-out validation at SNPs with genotypes in the -g input file, using only the input genotypes with maximum call probabilities exceeding a threshold of 0.90. There are 5470 such genotypes in the current input file.
 
-In the current analysis, IMPUTE2 masked, imputed, and evaluated 5470 genotypes that were called with high confidence (maximum probability >= 0.90) in the Panel 2 input file (-g or -known_haps_g).
-
-When the masked study genotypes were imputed with reference data from Panel 0, the concordance between original and imputed genotypes was as follows:
-
+Accuracy assessment for imputation of type 0 SNPs (those with data in Panel 0 only) .The maximum imputed genotype calls are distributed as follows:
   Interval  #Genotypes %Concordance         Interval  %Called %Concordance
   [0.0-0.1]          0          0.0         [ >= 0.0]   100.0         94.8
   [0.1-0.2]          0          0.0         [ >= 0.1]   100.0         94.8
   [0.2-0.3]          0          0.0         [ >= 0.2]   100.0         94.8
   [0.3-0.4]          0          0.0         [ >= 0.3]   100.0         94.8
-  [0.4-0.5]         27         44.4         [ >= 0.4]   100.0         94.8
-  [0.5-0.6]        150         65.3         [ >= 0.5]    99.5         95.0
-  [0.6-0.7]        122         54.9         [ >= 0.6]    96.8         95.9
-  [0.7-0.8]        183         81.4         [ >= 0.7]    94.5         96.8
-  [0.8-0.9]        246         90.7         [ >= 0.8]    91.2         97.4
-  [0.9-1.0]       4742         97.8         [ >= 0.9]    86.7         97.8
-
-Have a nice day!
+  [0.4-0.5]         25         56.0         [ >= 0.4]   100.0         94.8
+  [0.5-0.6]        154         67.5         [ >= 0.5]    99.5         95.0
+  [0.6-0.7]        116         56.9         [ >= 0.6]    96.7         95.8
+  [0.7-0.8]        169         76.9         [ >= 0.7]    94.6         96.7
+  [0.8-0.9]        236         89.8         [ >= 0.8]    91.5         97.3
+  [0.9-1.0]       4770         97.7         [ >= 0.9]    87.2         97.7

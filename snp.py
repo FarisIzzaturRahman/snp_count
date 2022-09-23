@@ -1,9 +1,13 @@
 __name__ = "Faris Izzatur Rahman"
 
+""" 
+    A simple python code to wrapping IMPUTE2 output and 
+    calculate the SNP from the analysis 
+"""
+
 import os
 import pandas as pd
 import argparse
-
 
 # create the parser
 arg = argparse.ArgumentParser()
@@ -16,23 +20,24 @@ option.add_argument("-o", "--output", help="Output file from analysis", type=str
 # parsing the argument
 args = vars(arg.parse_args())
 
+# Run the IMPUTE2 process if the input isfile
+# If the file not found will throw  exception
 try:    
     print('Process Loading')
     os.system( 
         f"""
         impute2 \
-        -m ../impute2/Example/example.chr22.map \
-        -h ../impute2/Example/example.chr22.1kG.haps \
-        -l ../impute2/Example/example.chr22.1kG.legend \
-        -g ../impute2/Example/example.chr22.study.gens \
-        -strand_g ../impute2/Example/example.chr22.study.strand \
+        -m ./Example/example.chr22.map \
+        -h ./Example/example.chr22.1kG.haps \
+        -l ./Example/example.chr22.1kG.legend \
+        -g ./Example/example.chr22.study.gens \
+        -strand_g ./Example/example.chr22.study.strand \
         -int 20e6 20.5e6 \
         -Ne 20000 \
         -o {args['output']}\
             > out.log
         """
     )
-    
 except FileNotFoundError:
     print('File Not Found')
 

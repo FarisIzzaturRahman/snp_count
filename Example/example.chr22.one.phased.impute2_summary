@@ -1,0 +1,58 @@
+
+======================
+ IMPUTE version 2.3.2 
+======================
+
+Copyright 2008 Bryan Howie, Peter Donnelly, and Jonathan Marchini
+Please see the LICENCE file included with this program for conditions of use.
+
+The seed for the random number generator is 2006540675.
+
+Command-line input: ./impute2 -use_prephased_g -m ./Example/example.chr22.map -h ./Example/example.chr22.1kG.haps -l ./Example/example.chr22.1kG.legend -known_haps_g ./Example/example.chr22.prephasing.impute2_haps -strand_g ./Example/example.chr22.study.strand -int 20.4e6 20.5e6 -Ne 20000 -o ./Example/example.chr22.one.phased.impute2
+
+---------------------------------
+ Nomenclature and data structure 
+---------------------------------
+
+     Panel 0: phased reference haplotypes
+     Panel 2: phased study haplotypes
+
+For optimal results, each successive panel (0,1,2) should contain a subset of the SNPs in the previous panel. When the data structure deviates from this ideal configuration, IMPUTE2 tries to use as much of the available information as possible; see documentation for details.
+
+-------------
+ Input files 
+-------------
+
+         Panel 0 haplotypes: ./Example/example.chr22.1kG.haps
+         Panel 0 hap legend: ./Example/example.chr22.1kG.legend
+        Panel 2 strand info: ./Example/example.chr22.study.strand
+         Panel 2 known haps: ./Example/example.chr22.prephasing.impute2_haps
+                genetic map: ./Example/example.chr22.map
+
+--------------
+ Output files 
+--------------
+
+                main output: ./Example/example.chr22.one.phased.impute2
+                SNP QC info: ./Example/example.chr22.one.phased.impute2_info
+             sample QC info: ./Example/example.chr22.one.phased.impute2_info_by_sample
+                run summary: ./Example/example.chr22.one.phased.impute2_summary
+                warning log: ./Example/example.chr22.one.phased.impute2_warnings
+
+-----------------
+ Data processing 
+-----------------
+
+-reading genetic map from -m file
+ --filename=[./Example/example.chr22.map]
+ --read 262 SNPs in the analysis interval+buffer region
+
+-reading strand info for Panel 2 from -strand_g file
+ --filename=[./Example/example.chr22.study.strand]
+ --read strand info for 33 SNPs in the analysis region
+
+-reading Panel 2 haplotypes from -known_haps_g file
+ --filename=[./Example/example.chr22.prephasing.impute2_haps]
+
+ERROR: The -known_haps_g file you specified does not exist.
+

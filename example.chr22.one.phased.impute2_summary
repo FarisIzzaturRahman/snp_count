@@ -6,9 +6,9 @@
 Copyright 2008 Bryan Howie, Peter Donnelly, and Jonathan Marchini
 Please see the LICENCE file included with this program for conditions of use.
 
-The seed for the random number generator is 1217105110.
+The seed for the random number generator is 1455948812.
 
-Command-line input: impute2 -m ../impute2/Example/example.chr22.map -h ../impute2/Example/example.chr22.1kG.haps -l ../impute2/Example/example.chr22.1kG.legend -g ../impute2/Example/example.chr22.study.gens -strand_g ../impute2/Example/example.chr22.study.strand -int 20e6 20.5e6 -Ne 20000 -o ./example.chr22.one.phased.impute2
+Command-line input: impute2 -m ./Example/example.chr22.map -h ./Example/example.chr22.1kG.haps -l ./Example/example.chr22.1kG.legend -g ./Example/example.chr22.study.gens -strand_g ./Example/example.chr22.study.strand -int 20e6 20.5e6 -Ne 20000 -o ./example.chr22.one.phased.impute2
 
 ---------------------------------
  Nomenclature and data structure 
@@ -23,11 +23,11 @@ For optimal results, each successive panel (0,1,2) should contain a subset of th
  Input files 
 -------------
 
-         Panel 0 haplotypes: ../impute2/Example/example.chr22.1kG.haps
-         Panel 0 hap legend: ../impute2/Example/example.chr22.1kG.legend
-          Panel 2 genotypes: ../impute2/Example/example.chr22.study.gens
-        Panel 2 strand info: ../impute2/Example/example.chr22.study.strand
-                genetic map: ../impute2/Example/example.chr22.map
+         Panel 0 haplotypes: ./Example/example.chr22.1kG.haps
+         Panel 0 hap legend: ./Example/example.chr22.1kG.legend
+          Panel 2 genotypes: ./Example/example.chr22.study.gens
+        Panel 2 strand info: ./Example/example.chr22.study.strand
+                genetic map: ./Example/example.chr22.map
 
 --------------
  Output files 
@@ -44,15 +44,15 @@ For optimal results, each successive panel (0,1,2) should contain a subset of th
 -----------------
 
 -reading genetic map from -m file
- --filename=[../impute2/Example/example.chr22.map]
+ --filename=[./Example/example.chr22.map]
  --read 262 SNPs in the analysis interval+buffer region
 
 -reading strand info for Panel 2 from -strand_g file
- --filename=[../impute2/Example/example.chr22.study.strand]
+ --filename=[./Example/example.chr22.study.strand]
  --read strand info for 33 SNPs in the analysis region
 
 -reading Panel 2 genotypes from -g file
- --filename=[../impute2/Example/example.chr22.study.gens]
+ --filename=[./Example/example.chr22.study.gens]
  --detected 250 individuals
  --read 33 SNPs in the analysis interval+buffer region
 
@@ -60,8 +60,8 @@ For optimal results, each successive panel (0,1,2) should contain a subset of th
  --flipped strand at 14 out of 33 SNPs
 
 -reading Panel 0 haplotypes from -h and -l files
- --filename=[../impute2/Example/example.chr22.1kG.haps]
- --filename=[../impute2/Example/example.chr22.1kG.legend]
+ --filename=[./Example/example.chr22.1kG.haps]
+ --filename=[./Example/example.chr22.1kG.legend]
  --detected 112 haplotypes
  --read 790 SNPs in the analysis interval+buffer region
 
@@ -163,13 +163,13 @@ In the current analysis, IMPUTE2 masked, imputed, and evaluated 5470 genotypes t
 When the masked study genotypes were imputed with reference data from Panel 0, the concordance between original and imputed genotypes was as follows:
 
   Interval  #Genotypes %Concordance         Interval  %Called %Concordance
-  [0.0-0.1]          0          0.0         [ >= 0.0]   100.0         94.7
-  [0.1-0.2]          0          0.0         [ >= 0.1]   100.0         94.7
-  [0.2-0.3]          0          0.0         [ >= 0.2]   100.0         94.7
-  [0.3-0.4]          0          0.0         [ >= 0.3]   100.0         94.7
-  [0.4-0.5]         32         37.5         [ >= 0.4]   100.0         94.7
-  [0.5-0.6]        144         65.3         [ >= 0.5]    99.4         95.1
-  [0.6-0.7]        117         55.6         [ >= 0.6]    96.8         95.9
-  [0.7-0.8]        186         81.7         [ >= 0.7]    94.6         96.8
-  [0.8-0.9]        244         89.3         [ >= 0.8]    91.2         97.3
-  [0.9-1.0]       4747         97.7         [ >= 0.9]    86.8         97.7
+  [0.0-0.1]          0          0.0         [ >= 0.0]   100.0         94.8
+  [0.1-0.2]          0          0.0         [ >= 0.1]   100.0         94.8
+  [0.2-0.3]          0          0.0         [ >= 0.2]   100.0         94.8
+  [0.3-0.4]          0          0.0         [ >= 0.3]   100.0         94.8
+  [0.4-0.5]         27         44.4         [ >= 0.4]   100.0         94.8
+  [0.5-0.6]        150         65.3         [ >= 0.5]    99.5         95.0
+  [0.6-0.7]        122         54.9         [ >= 0.6]    96.8         95.9
+  [0.7-0.8]        183         81.4         [ >= 0.7]    94.5         96.8
+  [0.8-0.9]        246         90.7         [ >= 0.8]    91.2         97.4
+  [0.9-1.0]       4742         97.8         [ >= 0.9]    86.7         97.8
