@@ -18,14 +18,15 @@ __name__ = "Faris Izzatur Rahman"
 import os
 import pandas as pd
 import argparse
+import sys
 
 # create the parser object
 arg = argparse.ArgumentParser()
 
 # add an argument
 option = arg.add_mutually_exclusive_group()
-option.add_argument("-i", "--input", help="Input file for IMPUTE2 Analysis",type=str)
-option.add_argument("-o", "--output", help="Output file from analysis. Default : Current dir.", type=str, default="./example.chr22.one.phased.impute2")
+option.add_argument("-i", "--input", help="Input file for IMPUTE2 Analysis. (Default : ./Example/example.chr22.study.gens)",type=str, default="./Example/example.chr22.study.gens")
+option.add_argument("-o", "--output", help="Output file from analysis. (Default : example.chr22.one.phased.impute2).", type=str, default="./example.chr22.one.phased.impute2")
 
 # parsing the argument
 args = vars(arg.parse_args())
@@ -44,35 +45,49 @@ try:
         -m ./Example/example.chr22.map \
         -h ./Example/example.chr22.1kG.haps \
         -l ./Example/example.chr22.1kG.legend \
-        -g ./Example/example.chr22.study.gens \
+        -g  {args['input']}\
         -strand_g ./Example/example.chr22.study.strand \
-        -int 20e6 20.5e6 \
+        -int 20.4e6 20.5e6 \
         -Ne 20000 \
         -o {args['output']}\
             > out.log
         """
     )
-    """
-        check if the process is running properly 
-        and does not cause any errors
-    """
+    
+        # check if the process is running properly 
+        # and does not cause any errors
     if os.system(impute2_call) != 0:
-        raise Exception('does not exist')
+        raise Exception("Something Error")
     else:
-        df = pd.read_csv('./Example/example.chr22.study.gens', sep=' ', header=None).drop([0,1,2,3,4],axis=1)
+        df = pd.read_csv(args['output'], sep=' ', header=None).drop([0,1,2,3,4],axis=1)
         df_out =  pd.read_csv('./Example/example.chr22.one.phased.impute2', sep=' ', header =None)
         df_ref_hap = pd.read_csv('./Example/example.chr22.1kG.haps', sep = ' ', header=None)
+        df_info = pd.read_csv(f"{args['output']}_info", sep=' ')
+        
+        # All the calculation will be displayed
+        # in the section after this
+        # All the calculation review on the amount 
+        # of data present on the input and output of the file. 
+        # This can be used as a reference to calculate 
+        # the answer to the question being sought
 
         """
-            All the calculation will be displayed
-            in the section after this
+            The column for unphased data in gen format
+            consists of 3 data for each individual. for example, 
+            if the variations in a particular snp are known as GG and GT, 
+            then the column has a combination of existing alleles, namely GG GT TT.
+            On ind1 a score of 1 0 0 will appear, for the appearance of GG, 
+            and on ind2 the score will appear 0 1 0 for the appearance of GT.
+            The number of individuals that we can extract from the unphased data is
+            total of the columns devided with 3
         """
-
-        print("Haplotype from the reference panel = " + str(int(len(df_ref_hap.columns))))
         print("Individuals in the Study Dataset = " + str(int(len(df.columns)/3)))
+        print("Haplotype from the reference panel = " + str(int(len(df_ref_hap.columns))))        
         print("SNPs in the Study Dataset = " + str(len(df)))
         print("SNPs in the Output of analysis = " + str(len(df_out)))
-except FileNotFoundError:
-    print('File Not Found')
+        print("SNPs have been imputed with good quality = " + str(len(df_info[df_info['exp_freq_a1']>=0.8])))
+except :
+    print("Oops!", sys.exc_info()[0], "occurred.")
+    print('The Process Have Been Terminated')
 
 print('The Process have been done')
