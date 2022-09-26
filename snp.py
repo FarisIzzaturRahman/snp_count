@@ -59,7 +59,7 @@ try:
     if os.system(impute2_call) != 0:
         raise Exception("Something Error")
     else:
-        df = pd.read_csv(args['output'], sep=' ', header=None).drop([0,1,2,3,4],axis=1)
+        df = pd.read_csv(args['input'], sep=' ', header=None).drop([0,1,2,3,4],axis=1)
         df_out =  pd.read_csv('./Example/example.chr22.one.phased.impute2', sep=' ', header =None)
         df_ref_hap = pd.read_csv('./Example/example.chr22.1kG.haps', sep = ' ', header=None)
         df_info = pd.read_csv(f"{args['output']}_info", sep=' ')
