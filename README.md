@@ -17,4 +17,4 @@ The program will analyze the input of the sample file provided on IMPUTE2 by def
 
 The code's output can answer the following questions about the input file and the IMPUTE2 analysis output results: 
 
-<img width="389" alt="image" src="https://user-images.githubusercontent.com/64579004/192252499-341411b0-0802-48e5-882f-3dbfb33d6604.png">
+<img width="361" alt="image" src="https://user-images.githubusercontent.com/64579004/192399486-cb2e39a1-b278-4a48-a614-86a96010a66d.png">
