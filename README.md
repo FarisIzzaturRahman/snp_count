@@ -9,7 +9,7 @@ This simple wrapper configure the examples imputation with one phased reference 
     The output process will be showed if
     the process is successfully executed
  
-This code can be used with the file input argument command to output the file. 
+This code can be used with the file input and output argument command . 
 The program will analyze the input of the sample file provided on IMPUTE2 by default, but it can also analyze other files.
 
 <img width="589" alt="image" src="https://user-images.githubusercontent.com/64579004/192251451-ea019f5c-4511-4218-9f98-d30224d1ef14.png">
