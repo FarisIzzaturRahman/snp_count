@@ -20,13 +20,36 @@ import pandas as pd
 import argparse
 import sys
 
+def inputChecker(input : str):
+    """
+        Checking for input argument given by user 
+        for file that will be analyze in IMPUTE2
+
+        Parameters
+        ----------
+        input : str
+            Input argument from User
+
+        Raises
+        ------
+        ArgumentTypeError
+            Invalid input from User
+
+        Returns
+        ------
+        input  
+            Returning input argument
+    """
+    if(os.path.isfile(input)==0):
+        raise argparse.ArgumentTypeError('Invalid Argument!!! Please enter your input correctly')    
+    return input
+
 # create the parser object
 arg = argparse.ArgumentParser()
 
 # add an argument
-option = arg.add_mutually_exclusive_group()
-option.add_argument("-i", "--input", help="Input file for IMPUTE2 Analysis. (Default : ./Example/example.chr22.study.gens)",type=str, default="./Example/example.chr22.study.gens")
-option.add_argument("-o", "--output", help="Output file from analysis. (Default : example.chr22.one.phased.impute2).", type=str, default="./example.chr22.one.phased.impute2")
+arg.add_argument("-i", "--input", help="Input file for IMPUTE2 Analysis. (Default : ./Example/example.chr22.study.gens)",type=inputChecker, default="./Example/example.chr22.study.gens")
+arg.add_argument("-o", "--output", help="Output file from analysis. (Default : example.chr22.one.phased.impute2).", type=str, default="./example.chr22.one.phased.impute2")
 
 # parsing the argument
 args = vars(arg.parse_args())
@@ -37,6 +60,7 @@ args = vars(arg.parse_args())
     The output process will be showed if
     the process is successfully executed
 """
+
 try:    
     print('Process Loading')
     impute2_call = ( 
@@ -64,12 +88,14 @@ try:
         df_ref_hap = pd.read_csv('./Example/example.chr22.1kG.haps', sep = ' ', header=None)
         df_info = pd.read_csv(f"{args['output']}_info", sep=' ')
         
-        # All the calculation will be displayed
-        # in the section after this
-        # All the calculation review on the amount 
-        # of data present on the input and output of the file. 
-        # This can be used as a reference to calculate 
-        # the answer to the question being sought
+        """        
+            All the calculation will be displayed
+            in the section after this
+            All the calculation review on the amount 
+            of data present on the input and output of the file. 
+            This can be used as a reference to calculate 
+            the answer to the question being sought
+        """
 
         """
             The column for unphased data in gen format
@@ -86,6 +112,7 @@ try:
         print("SNPs in the Study Dataset = " + str(len(df)))
         print("SNPs in the Output of analysis = " + str(len(df_out)))
         print("SNPs have been imputed with good quality = " + str(len(df_info[df_info['info']>=0.8])))
+
 except FileNotFoundError:
     raise Exception('The File not found')
 except :
