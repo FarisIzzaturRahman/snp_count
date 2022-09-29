@@ -6,7 +6,7 @@
 Copyright 2008 Bryan Howie, Peter Donnelly, and Jonathan Marchini
 Please see the LICENCE file included with this program for conditions of use.
 
-The seed for the random number generator is 1427833310.
+The seed for the random number generator is 1844714862.
 
 Command-line input: ./impute2 -m ./Example/example.chr22.map -h ./Example/example.chr22.1kG.haps -l ./Example/example.chr22.1kG.legend -g ./Example/example.chr22.study.gens -strand_g ./Example/example.chr22.study.strand -int 20.4e6 20.5e6 -Ne 20000 -o ./example.chr22.one.phased.impute2
 
@@ -168,8 +168,8 @@ When the masked study genotypes were imputed with reference data from Panel 0, t
   [0.2-0.3]          0          0.0         [ >= 0.2]   100.0         97.5
   [0.3-0.4]          0          0.0         [ >= 0.3]   100.0         97.5
   [0.4-0.5]          0          0.0         [ >= 0.4]   100.0         97.5
-  [0.5-0.6]         13        100.0         [ >= 0.5]   100.0         97.5
-  [0.6-0.7]          4        100.0         [ >= 0.6]    99.6         97.5
-  [0.7-0.8]          8         87.5         [ >= 0.7]    99.4         97.5
-  [0.8-0.9]         47         87.2         [ >= 0.8]    99.2         97.5
-  [0.9-1.0]       2913         97.7         [ >= 0.9]    97.6         97.7
+  [0.5-0.6]         12         91.7         [ >= 0.5]   100.0         97.5
+  [0.6-0.7]          6         83.3         [ >= 0.6]    99.6         97.5
+  [0.7-0.8]          3        100.0         [ >= 0.7]    99.4         97.5
+  [0.8-0.9]         39         87.2         [ >= 0.8]    99.3         97.5
+  [0.9-1.0]       2925         97.6         [ >= 0.9]    98.0         97.6

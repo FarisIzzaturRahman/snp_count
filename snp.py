@@ -85,7 +85,9 @@ try:
         print("Haplotype from the reference panel = " + str(int(len(df_ref_hap.columns))))        
         print("SNPs in the Study Dataset = " + str(len(df)))
         print("SNPs in the Output of analysis = " + str(len(df_out)))
-        print("SNPs have been imputed with good quality = " + str(len(df_info[df_info['exp_freq_a1']>=0.8])))
+        print("SNPs have been imputed with good quality = " + str(len(df_info[df_info['info']>=0.8])))
+except FileNotFoundError:
+    raise Exception('The File not found')
 except :
     print("Oops!", sys.exc_info()[0], "occurred.")
     print('The Process Have Been Terminated')
