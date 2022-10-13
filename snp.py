@@ -177,8 +177,4 @@ def main():
     runIMPUTE2(args['input'], args['output'])
     calculateSNP(args['input'], args['output'])
 
-
-# if __name__ == "__main__":
-#     mainRun()
 main()
-# print(__name__)

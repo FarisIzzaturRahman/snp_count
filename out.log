@@ -6,7 +6,7 @@
 Copyright 2008 Bryan Howie, Peter Donnelly, and Jonathan Marchini
 Please see the LICENCE file included with this program for conditions of use.
 
-The seed for the random number generator is 906735894.
+The seed for the random number generator is 710245906.
 
 Command-line input: ./impute2 -m ./Example/example.chr22.map -h ./Example/example.chr22.1kG.haps -l ./Example/example.chr22.1kG.legend -g ./Example/example.chr22.study.gens -strand_g ./Example/example.chr22.study.strand -int 20.4e6 20.5e6 -Ne 20000 -o ./example.chr22.one.phased.impute2
 
@@ -207,7 +207,7 @@ MCMC iteration [29/30]
 MCMC iteration [30/30]
 
 
-diploid sampling success rate: 0.988
+diploid sampling success rate: 0.987
 
 haploid sampling success rate: (no haploid sampling performed)
 
@@ -228,10 +228,10 @@ When the masked study genotypes were imputed with reference data from Panel 0, t
   [0.2-0.3]          0          0.0         [ >= 0.2]   100.0         97.5
   [0.3-0.4]          0          0.0         [ >= 0.3]   100.0         97.5
   [0.4-0.5]          0          0.0         [ >= 0.4]   100.0         97.5
-  [0.5-0.6]         11        100.0         [ >= 0.5]   100.0         97.5
-  [0.6-0.7]          5         80.0         [ >= 0.6]    99.6         97.5
-  [0.7-0.8]          4         75.0         [ >= 0.7]    99.5         97.5
-  [0.8-0.9]         41         92.7         [ >= 0.8]    99.3         97.5
-  [0.9-1.0]       2924         97.6         [ >= 0.9]    98.0         97.6
+  [0.5-0.6]         16        100.0         [ >= 0.5]   100.0         97.5
+  [0.6-0.7]          3        100.0         [ >= 0.6]    99.5         97.5
+  [0.7-0.8]          8        100.0         [ >= 0.7]    99.4         97.5
+  [0.8-0.9]         40         80.0         [ >= 0.8]    99.1         97.5
+  [0.9-1.0]       2918         97.7         [ >= 0.9]    97.8         97.7
 
 Have a nice day!
