@@ -51,29 +51,29 @@ def inputChecker(input : str):
         raise argparse.ArgumentTypeError('Invalid Argument!!! Please enter your input correctly')    
     return input
 
-def outputChecker(output : str):
-    """
-        Checking for output argument given by user 
-        for file that will be analyze in IMPUTE2
+# def outputChecker(output : str):
+#     """
+#         Checking for output argument given by user 
+#         for file that will be analyze in IMPUTE2
 
-        Parameters
-        ----------
-        output : str
-            Output argument from User
+#         Parameters
+#         ----------
+#         output : str
+#             Output argument from User
 
-        Raises
-        ------
-        ArgumentTypeError
-            Invalid output from User
+#         Raises
+#         ------
+#         ArgumentTypeError
+#             Invalid output from User
 
-        Returns
-        ------
-        output  
-            Returning output argument
-    """
-    if(os.path.isfile(output)==1):
-        raise argparse.ArgumentTypeError('Invalid Argument!!! Please enter your output correctly')    
-    return output
+#         Returns
+#         ------
+#         output  
+#             Returning output argument
+#     """
+#     if(os.path.isfile(output)==1):
+#         raise argparse.ArgumentTypeError('Invalid Argument!!! Please enter your output correctly')    
+#     return output
 
 
 def runIMPUTE2(input : str, output : str):
